@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NordBatim · Rénovation & construction</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* --------------------------------------------- */
+    /* styles complets du site NordBatim             */
+    /* --------------------------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #1e2b37;
+      line-height: 1.5;
+      position: relative;
+      background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    /* Overlay sombre pour améliorer la lisibilité du texte */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      background: linear-gradient(145deg, rgba(26,46,63,0.9) 0%, rgba(15,30,43,0.9) 100%);
+      color: white;
+      padding: 3rem 0 2.5rem 0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      backdrop-filter: blur(2px);
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    header .tagline {
+      font-size: 1.2rem;
+      font-weight: 300;
+      opacity: 0.95;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      display: inline-block;
+      padding-top: 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    /* Badge expérience */
+    .experience-badge {
+      display: inline-block;
+      background-color: #e67e22;
+      color: white;
+      font-weight: 600;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      box-shadow: 0 4px 10px rgba(230,126,34,0.3);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .intro {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(4px);
+      padding: 2.5rem 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .intro p {
+      max-width: 800px;
+      margin: 0 auto 1.5rem auto;
+      font-size: 1.2rem;
+      color: #1e2b37;
+      font-weight: 400;
+    }
+
+    .intro strong {
+      font-weight: 600;
+      color: #1a2e3f;
+    }
+
+    .services {
+      padding: 4rem 0;
+      background-color: rgba(255,255,255,0.85);
+      backdrop-filter: blur(4px);
+    }
+
+    .services h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #1a2e3f;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .services h2:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #e67e22;
+      margin: 0.7rem auto 0;
+      border-radius: 4px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.9);
+      border-radius: 24px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 10px 25px -8px rgba(0,20,30,0.2);
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      backdrop-filter: blur(2px);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 30px -12px rgba(0,45,65,0.3);
+      border-color: #e0e9f0;
+    }
+
+    .service-icon {
+      font-size: 2.8rem;
+      color: #e67e22;
+      margin-bottom: 1.2rem;
+      background: rgba(254,243,231,0.9);
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 60% 40% 50% 50% / 40% 50% 60% 50%;
+      transition: all 0.2s;
+    }
+
+    .service-card:hover .service-icon {
+      background: #e67e22;
+      color: white;
+    }
+
+    .service-card h3 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      color: #1e2b37;
+      border-bottom: 2px solid #eaeef2;
+      padding-bottom: 0.5rem;
+      width: 100%;
+    }
+
+    .service-card p {
+      font-size: 0.98rem;
+      color: #2c3e50;
+      margin: 0;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .gallery {
+      padding: 4rem 0;
+      background: rgba(242,246,249,0.85);
+      backdrop-filter: blur(4px);
+    }
+
+    .gallery h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #1a2e3f;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .gallery h2:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #e67e22;
+      margin: 0.7rem auto 0;
+      border-radius: 4px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+      height: 250px;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .testimonials {
+      padding: 4rem 0;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(4px);
+    }
+
+    .testimonials h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #1a2e3f;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .testimonials h2:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #e67e22;
+      margin: 0.7rem auto 0;
+      border-radius: 4px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: rgba(250,251,252,0.9);
+      border-radius: 24px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      border: 1px solid rgba(255,255,255,0.5);
+      transition: 0.2s;
+      backdrop-filter: blur(2px);
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 12px 24px -8px rgba(0,45,65,0.15);
+    }
+
+    .testimonial-card i {
+      color: #e67e22;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      opacity: 0.7;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: #1e2b37;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #e67e22;
+    }
+
+    .author-info h4 {
+      font-weight: 600;
+      color: #1a2e3f;
+    }
+
+    .author-info span {
+      font-size: 0.85rem;
+      color: #4a5a6a;
+    }
+
+    .cta-section {
+      background: rgba(242,246,249,0.85);
+      backdrop-filter: blur(4px);
+      padding: 3.5rem 0;
+      text-align: center;
+    }
+
+    .cta-section h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #1a2e3f;
+      margin-bottom: 0.8rem;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      color: #1e2b37;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #e67e22;
+      color: white;
+      font-weight: 600;
+      padding: 1rem 3rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      letter-spacing: 0.3px;
+      box-shadow: 0 6px 14px rgba(230,126,34,0.4);
+      transition: background 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .btn:hover {
+      background: #cf6f1d;
+      transform: scale(1.02);
+      box-shadow: 0 8px 18px rgba(200,100,10,0.5);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      box-shadow: 0 6px 14px rgba(37,211,102,0.3);
+    }
+
+    .btn-whatsapp:hover {
+      background: #20b859;
+    }
+
+    footer {
+      background: rgba(26,46,63,0.95);
+      backdrop-filter: blur(2px);
+      color: #d0dee9;
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    footer .container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    footer a {
+      color: #f5c69b;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+      color: #ffd8af;
+    }
+
+    .footer-contact i {
+      margin: 0 0.4rem;
+      color: #e67e22;
+    }
+
+    .footer-contact span {
+      margin: 0 1rem 0 0.2rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.5rem; }
+      .services h2 { font-size: 2.2rem; }
+      .service-card h3 { font-size: 1.5rem; }
+      .btn { padding: 0.8rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>NordBatim</h1>
+    <div class="tagline">Rénovation & construction • Hauts‑de‑France</div>
+    <div class="experience-badge">
+      <i class="fas fa-star" style="margin-right: 6px;"></i> +15 ans d'expérience
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="container">
+    <p><strong>Artisans passionnés depuis 2012</strong> — Nous donnons vie à vos projets avec sérieux et transparence. De la charpente à la peinture, chaque détail compte.</p>
+    <!-- Nouveau bouton de devis gratuit -->
+    <a href="https://wa.link/sg2qqf" target="_blank" class="btn" style="margin-top: 0.5rem;"><i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Demander un devis gratuit</a>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <h2>Nos services</h2>
+    <div class="services-grid">
+      
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-wrench"></i></div>
+        <h3>PLOMBERIE</h3>
+        <p>Nous assurons l’installation, la maintenance et la réparation de tous vos systèmes de plomberie. De la salle de bain à la cuisine, notre équipe intervient rapidement pour résoudre vos problèmes.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-bolt"></i></div>
+        <h3>ÉLECTRICITÉ</h3>
+        <p>De la mise aux normes à l’installation complète, nos électriciens qualifiés vous garantissent une installation sûre et performante.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-border-all"></i></div>
+        <h3>SOLS</h3>
+        <p>Pose de tous types de revêtements de sol : carrelage, parquet, moquette, vinyle. Nous vous conseillons pour le choix des matériaux et réalisons une pose soignée.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-kitchen-set"></i></div>
+        <h3>CUISINES</h3>
+        <p>Conception et installation de cuisines sur mesure. Nous nous occupons de l’électricité, de la plomberie et des meubles pour un rendu fonctionnel et esthétique.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-hammer"></i></div>
+        <h3>CHARPENTE</h3>
+        <p>Construction et rénovation de charpentes en bois pour toitures, terrasses et structures. Nous utilisons des matériaux de qualité pour une durabilité optimale.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+        <h3>PEINTURE</h3>
+        <p>Peinture de vos murs, plafonds et façades. Nous préparons les surfaces et utilisons des produits de qualité pour un résultat durable.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-window-maximize"></i></div>
+        <h3>FENÊTRES</h3>
+        <p>Installation de fenêtres en PVC, aluminium ou bois. Nous améliorons l’isolation et l’esthétique de votre habitation.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALERIE PHOTOS -->
+<section class="gallery">
+  <div class="container">
+    <h2>Nos réalisations</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop" alt="Rénovation cuisine">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop" alt="Salle de bain moderne">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&auto=format&fit=crop" alt="Charpente bois">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section class="testimonials">
+  <div class="container">
+    <h2>Ils nous font confiance</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <i class="fas fa-quote-left"></i>
+        <p>“Entreprise très professionnelle. La pose de ma cuisine a été réalisée dans les délais, avec une grande attention aux détails. Je recommande !”</p>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sophie L.">
+          <div class="author-info">
+            <h4>Sophie L.</h4>
+            <span>Armentières</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fas fa-quote-left"></i>
+        <p>“Intervention rapide pour une fuite d’eau un samedi matin. Plombier compétent et tarif correct. Merci NordBatim !”</p>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marc D.">
+          <div class="author-info">
+            <h4>Marc D.</h4>
+            <span>Lille</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fas fa-quote-left"></i>
+        <p>“Rénovation complète de notre salle de bain : carrelage, plomberie, électricité. Résultat impeccable et équipe sympathique.”</p>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Céline M.">
+          <div class="author-info">
+            <h4>Céline M.</h4>
+            <span>Armentières</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h3>Prêt à concrétiser votre projet ?</h3>
+    <p>Un devis clair, gratuit et sans engagement.</p>
+    <a href="https://wa.link/sg2qqf" target="_blank" class="btn"><i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Demander un devis</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-contact">
+      <i class="fas fa-map-marker-alt"></i><span> 28 rue Pierre Curie, Armentières</span>
+      <i class="fas fa-phone"></i><span> 06 03 63 55 05</span>
+      <i class="fas fa-envelope"></i><a href="mailto:nordbatim@gmail.com"> nordbatim@gmail.com</a>
+    </div>
+    <div style="margin-top: 0.8rem;">
+      © 2025 NordBatim — Tous droits réservés. Mentions légales
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
